@@ -4,12 +4,15 @@
 
 **SMOL** is an interpreted esoteric programming language, written in **C**.
 
-Its interpreter is made to be as small as I can make it (I managed to do it in 594 bytes)
+Its interpreters source is made to be as small as I can make it (I managed to do it in 585 bytes) and according to my tests it runst 1'000'000'000 iterations loop 2 times faster than python does.
 Code itself is in  ***src/small_main.c*** but you can find readable version with explanations here: ***src/main-manual.c***
 If you want to compile SMOLs interpreter localy *(for some reason)*, I would recomend you using `gcc` because other compilers may not work *(g++ doesn't compile it)*
+
 # How to run
 
-You can run only code from file named "main.smol", placed within the same folder as an interpreter itself
+You can run only code from file named "main.smol", placed within the same folder as an interpreter itself.
+But I highly recomend you to use BigSmol.exe (compiled from main-manual.c) because It has `>` operator and it can read from any file (not only `main.smol`)
+*(P.S. SmallSmol.exe is compiled from original 585 bytes code)*
 
 # Syntax
 
@@ -18,11 +21,11 @@ You can run only code from file named "main.smol", placed within the same folder
 you can do whatever you want, as far as each line contains **5 words, 4 symbols each**, **There is a line, witch starts with ENDC token** and **THERE ARE NO EMPTY LINES**
 
 SMOL has 3 command:
-
->PRNT
->JMPI
->SETV
-
+```
+PRNT
+JMPI
+SETV
+```
 comand names should be the first word of the line. Otherwise they will be skipped.
 Everything else will be considered *comment*. **Comments must also follow rules above**
 
@@ -118,7 +121,7 @@ JMPI + number (0-> jump will not happend, else it will jump) + number (line of c
 ```
 JMPI 0001 0003 ```` ````
 ```
-this line will always jump on the 3rd line of code when reached
+this line will always jump on the 4th line of code when reached (lines are 0-indexed)
 We can use *the void* as any of the number (or both)
 
 # REAL CODE EXAMPLES
@@ -219,3 +222,4 @@ PRNT numb v003 prnt res`
 ENDC ```` ```` ```` ````
 ```
 block `func ret tree` contains all places from where we call it. We only need to put right index into v006!
+go check examples/ to see more smol programms!
